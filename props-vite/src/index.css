@@ -1,0 +1,45 @@
+*{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+  background-color: #111;
+  color: antiquewhite;
+}
+
+.cardComp{
+  background-color: rgb(92, 92, 92);
+  margin: 10px;
+  border: 3px solid yellowgreen;
+  padding: 10px;
+  border-radius: 15px;
+  width: 30%;
+  gap: 10px;
+  text-align: center;
+
+}
+
+.btn{
+  padding: 12px;
+  margin: 5px;
+  border: 1px solid yellowgreen;
+  background-color: cadetblue;
+  color: white;
+  font-size: small;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.cardComp img{
+  width: 250px;
+  border-radius: 8px;
+  border: 2px solid white;
+  object-fit: cover;
+}
+
+.parent{
+  display: flex;
+  flex-wrap: wrap;
+}
