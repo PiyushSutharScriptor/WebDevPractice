@@ -117,10 +117,12 @@ const PropsCard = () => {
   return (
     <>
 
-    {users.map((obj)=>{
-        return <Card name={obj.name} image={obj.image} role={obj.role}
-        followers={obj.followers} following={obj.following} pay={obj.pay} company={obj.company}
+    {users.map((obj,idx)=>{
+        return <div key={idx}>
+            <Card  name={obj.name} image={obj.image} role={obj.role}
+          followers={obj.followers} following={obj.following} pay={obj.pay} company={obj.company}
         />
+        </div>
     })}
 
     </>

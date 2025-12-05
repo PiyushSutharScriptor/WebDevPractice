@@ -38,12 +38,12 @@ const App = () => {
 
         <div></div>
         {arr2.map((num)=>{
-          return <span>{num*2} ,  </span>
+          return num*2
         })}
 
         <div></div>
         {arr2.map((num)=>{
-          return <span>{num/2}  , </span>
+          return num/2
         })}
 
       </div>
