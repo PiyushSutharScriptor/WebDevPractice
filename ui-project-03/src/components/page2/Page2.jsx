@@ -2,8 +2,7 @@ import React from 'react'
 
 const Page2 = () => {
   return (
-    <div className='h-screen w-full bg-amber-500'>
-      Page2
+    <div className='h-screen w-full'>
     </div>
   )
 }
