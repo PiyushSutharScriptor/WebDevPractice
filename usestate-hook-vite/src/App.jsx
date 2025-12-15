@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import DirectAccess from './components/First'
+import DirectAccess from './components/DirectAccess'
 import UseStateAccess from './components/UseStateAccess'
 
 const App = () => {
