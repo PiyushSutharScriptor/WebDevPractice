@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import DirectAccess from './components/DirectAccess'
 import UseStateAccess from './components/UseStateAccess'
 
