@@ -6,7 +6,8 @@ const App = () => {
       <h2 className="text-3xl font-bold underline">
         Hello world!
       </h2>
-    </div>
+      <h2 className='flex text-[10px]'></h2>
+    </div>  
   )
 }
 

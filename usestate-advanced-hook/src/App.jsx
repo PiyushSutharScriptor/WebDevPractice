@@ -7,14 +7,14 @@ const App = () => {
   const[obj, setObj] = useState({name:'Piyush' , age:21})
   const[arr,setArr] = useState([10,20,30,40,50])
   const[men,setMen] = useState({user:"Suresh" , age:30 , city:"Hyderabad"})
-
+  const[batch,setBatch] = useState(10)
   return (
     <div>
 
 
 
       <h1>Hello, Weather is {value}</h1>
-      <button style={{'margin-right':'12px'}} onClick={()=>{
+      <button style={{'marginRight':'12px'}} onClick={()=>{
         console.log(value)  
         setValue(value+1)
         console.log(value);
@@ -95,6 +95,26 @@ const App = () => {
       }}>Click to change array</button>
 
 
+
+      <h1 style={{height:'2px', background:'red'}}></h1>
+
+
+      <h1>Batch update</h1>
+      <h1>Value : {batch}</h1>
+      <button onClick={()=>{
+        //it will update only once
+        setBatch(batch+1)
+        setBatch(batch+1)
+        setBatch(batch+1)
+
+        //handling batch update :
+        //here it will update by three(or as many as setBatch)
+        setBatch(num=>(num+1))
+        setBatch(num=>(num+1))
+        setBatch(num=>(num+1))
+
+        //total updates : 1(from top) + 3(batch handling) = 4
+      }}>Click to change batch</button>
 
     </div>  
   )
