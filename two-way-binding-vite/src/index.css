@@ -1,0 +1,17 @@
+body{
+    background-color: rgb(125, 118, 121);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif    ;
+}
+
+input,button{
+    padding: 10px 20px;
+    margin: 10px;
+    border: 2px solid rgb(153, 255, 0);
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
+
+button{
+    cursor: pointer;
+}
