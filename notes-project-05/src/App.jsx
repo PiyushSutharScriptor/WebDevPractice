@@ -64,10 +64,23 @@ const App = () => {
           <div className='w-full flex flex-col gap-8'>
             {task.map((obj,idx)=>{
               return <div key={idx} className="bg-[url('https://static.vecteezy.com/system/resources/previews/037/152/688/non_2x/sticky-note-paper-background-free-png.png')] relative bg-cover p-4 text-black w-full h-50 rounded overflow-x-hidden overflow-y-hidden">
+
+                {/* output title */}
                 <h1 className='font-bold text-2xl mb-2 mt-5'>{obj.title}</h1>
-                <RiDeleteBin5Fill className='absolute top-10 right-1/10 text-2xl cursor-pointer active:scale-75 text-red-600 ' />
+
+                {/* output delete logo */}
+                <RiDeleteBin5Fill onClick={()=>{
+                  const copyTask = [...task]
+                  console.log(copyTask[idx]);
+                  copyTask.splice(idx,1);
+                  setTask(copyTask)
+
+                }} className='absolute top-10 right-1/10 text-2xl cursor-pointer active:scale-75 text-red-600 ' />
+
                 <hr />
+                {/* output details */}
                 <p className='font-medium mt-2 text-gray-600'>{obj.details}</p>
+
               </div>
             })}
             {/* <div className='bg-white w-full h-40 rounded'>Card</div> */}
