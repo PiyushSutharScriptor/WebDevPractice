@@ -14,17 +14,51 @@ const FetchApi = () => {
         console.log(data);
         //using async and await to wait for the promise to get fulfilled and fetch the data with API
     }
+
+    const getAPIThen = ()=>{
+        fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(prom => console.log(prom))
+        .catch(err => console.log(err))
+    }
+
+    const getAPIFetchJsonData = async()=>{
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos/4')
+        const data = await response.json()
+        console.log(data);
+    }   
+
+    const getAPIFetchJsonDataBlk = async()=>{
+        const response = await fetch('https://jsonplaceholder.typicode.com/users')
+        const data = await response.json();
+        console.log(data);
+        
+    }
      
     return (
         <>
             <div>
                 <h1>Fetch API : (without async)</h1>
-                <button onClick={getAPIData}>Get Data through API</button>
+                <button onClick={getAPIData}>Get Data (Fetch)</button>
             </div>
 
             <div>
                 <h1>Fetch API : (with async)</h1>
-                <button onClick={getAPIAsync}>Get Data through API</button>
+                <button onClick={getAPIAsync}>Get Data(Fetch Async)</button>
+            </div>
+
+            <div>
+                <h1>Fetch API : (with .then)</h1>
+                <button onClick={getAPIThen}>Get Data (Fetch .then)</button>
+            </div>
+
+            <div>
+                <h1>Fetch API : (json data with fetch and async)</h1>
+                <button onClick={getAPIFetchJsonData}>Get json Data (Fetch async)</button>
+            </div>
+
+            <div>
+                <h1>Fetch API : (json data with fetch and async) bulk data</h1>
+                <button onClick={getAPIFetchJsonDataBlk}>Get Bulk json Data (Fetch async)</button>
             </div>
         </>
     )
