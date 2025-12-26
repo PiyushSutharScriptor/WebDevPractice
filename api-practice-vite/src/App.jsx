@@ -1,6 +1,7 @@
 import React from 'react'
 import FetchApi from './components/FetchApi';
 import Axios from './components/Axios';
+import AxiosOpera from './components/AxiosOpera';
 
 const App = () => {
 
@@ -34,7 +35,12 @@ const App = () => {
 
       <hr />
 
-      
+      {/* API Operations */}
+      <AxiosOpera />
+
+      <hr />
+
+
 
     </>
   )
