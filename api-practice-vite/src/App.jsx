@@ -1,5 +1,6 @@
 import React from 'react'
 import FetchApi from './components/FetchApi';
+import Axios from './components/Axios';
 
 const App = () => {
 
@@ -28,6 +29,12 @@ const App = () => {
 
       <hr />
 
+      {/* Axios API */}
+      <Axios />
+
+      <hr />
+
+      
 
     </>
   )
