@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: black;
+    color: white;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.nav{
+    background-color: goldenrod;
+    height: 50px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav li a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+}
+.nav li{
+    list-style: none;
+}
+
+.fot{
+    width: 100%;
+    background-color: burlywood;
+    position: absolute;
+    bottom: 0;
+    color: black;
+    font-size: 23px;
+    height: 30px;
+    font-weight: 500;
+}
