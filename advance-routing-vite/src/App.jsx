@@ -34,7 +34,7 @@ const App = () => {
           <Route path='exclusive' element={<Exclusive />} />
         </Route>
 
-        {/* Dynamic Routing */}
+        {/* Dynamic Routing   */} {/* in place of 'id' we can write anything */}
         <Route path='/collection' element={<Collection />} />
         <Route path='/collection/:id' element={<CollectionDetails />} /> 
 
