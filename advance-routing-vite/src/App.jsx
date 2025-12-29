@@ -13,12 +13,13 @@ import Kids from './pages/Kids'
 import Exclusive from './pages/Exclusive'
 import Collection from './pages/Collection'
 import CollectionDetails from './pages/CollectionDetails'
+import Navbar2 from './components/Navbar2'
 
 const App = () => {
   return (
     <div>
       <Navbar />
-
+      <Navbar2 />
       <Routes>
 
         {/* Normal Routing */}
