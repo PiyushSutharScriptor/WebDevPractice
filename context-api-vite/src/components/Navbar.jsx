@@ -1,7 +1,9 @@
 import React from 'react'
 import Navbar2 from './Navbar2'
 import { useContext } from 'react'
-import {ThemeDataContext} from '../context/ThemeContext'
+import { PostContext } from '../context/PostProvider'
+// import {ThemeDataContext} from '../context/ThemeContext'
+
 
 const Navbar = (props) => {
 
@@ -9,7 +11,7 @@ const Navbar = (props) => {
   // console.log(props.children)
   // console.log(props.theme)
 
-  const data = useContext(ThemeDataContext)
+  const data = useContext(PostContext)
   console.log(data);
   
   return (
