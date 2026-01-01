@@ -1,6 +1,21 @@
 import React from 'react'
 import Navbar2 from './Navbar2'
 
+const Navbar = (props) => {
+  console.log(props.children)
+  console.log(props.theme)
+  return (
+    <div className='nav1'>
+      <h2>Piyush Suthar</h2>
+      {props.children[0]}
+      {props.children[1]}
+      <Navbar2 theme={props.theme} />
+    </div>
+  )
+}
+
+//destructuring of props (children prop drilling)
+/*
 const Navbar = ({children,theme}) => {
   console.log(children)
   console.log(theme)
@@ -13,6 +28,7 @@ const Navbar = ({children,theme}) => {
     </div>
   )
 }
+*/
 
 //another way of writing above functions
 /*

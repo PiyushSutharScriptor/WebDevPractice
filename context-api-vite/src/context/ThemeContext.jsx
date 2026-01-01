@@ -1,8 +1,10 @@
 import React from 'react'
 
-const ThemeContext = () => {
+const ThemeContext = (props) => {
   return (
-    <div>ThemeContext</div>
+    <div>
+        {props.children}
+    </div>
   )
 }
 
