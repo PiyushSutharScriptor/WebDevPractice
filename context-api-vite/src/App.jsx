@@ -1,13 +1,17 @@
 import React from 'react'
-import { useState } from 'react'
 import Navbar from './components/Navbar'
+import { useState } from 'react'
 
 const App = () => {
-  const [theme, setTheme] = useState('light')
+
+  const[theme, setTheme] = useState('light')
+
   return (
     <div>
-      <Navbar theme={theme} setTheme={setTheme} />
-      <h1>The theme is {theme}</h1>
+      <Navbar theme={theme}>
+        <h2>This is first line</h2>
+        <h3>This is second line</h3>
+      </Navbar>
     </div>
   )
 }

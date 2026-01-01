@@ -1,3 +1,8 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
 body{
   background-color: black;
   color: white;
@@ -11,4 +16,21 @@ button{
   border-radius: 10px;
   cursor: pointer;
   font-weight: 600;
+}
+
+.nav1{
+  display: flex;
+  justify-content: space-between;
+  background-color: greenyellow;
+  height: 60px;
+  align-items: center;
+  padding-left: 10px;
+  color: black;
+}
+
+.nav2{
+  display: flex;
+  gap: 15px;
+  padding-right: 10px;
+  font-size: 22px;
 }
