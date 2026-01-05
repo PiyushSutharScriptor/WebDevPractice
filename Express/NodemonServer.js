@@ -18,6 +18,8 @@ app.get('/products' , (req,res)=>{
     res.send("Nodemon products page")
 })
 
+app.
+
 app.listen(port , ()=>{
     console.log("Nodemon server running");
 })
