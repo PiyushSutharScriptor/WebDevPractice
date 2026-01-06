@@ -25,7 +25,7 @@ app.get('/piyush/profile' , (req,res)=>{
 
 //dynamic route
 app.get('/piyush/:id' , (req,res)=>{
-    res.send("Message from dyanmic route")
+    res.send(`Message from dyanmic route : ${req.params.id}`)
 })
 
 //running server on port
