@@ -7,9 +7,14 @@ app.use((req,res,next)=>{
     console.log("Middleware Running" , req.url)
     // res.send("Middleware response") // don't use this 
                                     // becuase the next() will not work
-    next(); //
-
+    next(); //used to run next middleware/route
 });
+
+//middleware 2
+app.use((req,res,next)=>{
+    console.log("Middleware 2 is running..." , req.url)
+    next()
+})
 
 app.get('/' , (req,res)=>{
     res.send("Middlware Main request")
