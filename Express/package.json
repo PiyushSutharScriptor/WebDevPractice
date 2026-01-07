@@ -1,9 +1,10 @@
 {
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^5.2.1",
     "nodemon": "^3.1.11"
   },
   "scripts": {
-    "dev":"nodemon NodemonServer.js"
+    "dev": "nodemon NodemonServer.js"
   }
 }
