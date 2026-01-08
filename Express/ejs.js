@@ -20,8 +20,8 @@ app.get('/' , (req,res)=>{
 })
 
 //route with ejs file 2
-app.get('/about' , (req,res)=>{
-    res.render("about" , {age:41})
+app.get('/contact' , (req,res)=>{
+    res.render("contact" , {age:41})
 })
 
 //port 

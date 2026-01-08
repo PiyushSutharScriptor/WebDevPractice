@@ -1,0 +1,218 @@
+
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    background: linear-gradient(rgba(237, 189, 130, 0.3), rgba(139, 69, 19, 0.4)), 
+                url('https://images.pexels.com/photos/129731/pexels-photo-129731.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100%;
+    animation: backgroundFade 1.5s ease-in-out;
+}
+
+html {
+    height: 100%;
+}
+
+@keyframes backgroundFade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 
+                0 10px 20px rgba(0, 0, 0, 0.1);
+    padding: 3rem 2.5rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: cardEntrance 1s ease-out 0.3s forwards;
+    border: 1px solid rgba(237, 189, 130, 0.3);
+}
+
+@keyframes cardEntrance {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out 0.8s forwards;
+}
+
+.logo {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #8B4513;
+    margin-bottom: 0.5rem;
+    letter-spacing: -1px;
+}
+
+.tagline {
+    color: #A0522D;
+    font-size: 0.95rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.form-group:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.form-group:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.form-group:nth-child(4) {
+    animation-delay: 1.4s;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #8B4513;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid rgba(237, 189, 130, 0.3);
+    border-radius: 12px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: #EDBD82;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 0 3px rgba(237, 189, 130, 0.1);
+    transform: translateY(-2px);
+}
+
+.login-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #EDBD82, #D4A574);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(237, 189, 130, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.login-button:hover {
+    background: linear-gradient(135deg, #D4A574, #C19660);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(237, 189, 130, 0.4);
+}
+
+.login-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(237, 189, 130, 0.3);
+}
+
+.forgot-password {
+    text-align: center;
+    margin-top: 1.5rem;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 1.6s forwards;
+}
+
+.forgot-password a {
+    color: #A0522D;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #8B4513;
+    text-decoration: underline;
+}
+
+.decorative-line {
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #EDBD82, transparent);
+    margin: 2rem 0 1rem 0;
+    border-radius: 2px;
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out 1.8s forwards;
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+    }
+    
+    .logo {
+        font-size: 2rem;
+    }
+}
+
+/* Subtle wood grain texture overlay */
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(237, 189, 130, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(160, 82, 45, 0.1) 0%, transparent 50%);
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+.login-container > * {
+    position: relative;
+    z-index: 1;
+}
