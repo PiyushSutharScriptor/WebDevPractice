@@ -5,6 +5,9 @@ const port = 3000;
 //ejs configuration
 app.set("view engine" , "ejs");
 
+//static file configuration
+app.use(express.static('./public'))
+
 //middleware
 app.use((req,res,next)=>{
     console.log("Middeware by : " , req.url)
