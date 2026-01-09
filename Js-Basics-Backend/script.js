@@ -53,5 +53,9 @@ let find10 = arr.find((val)=>{
 console.log(find2) //2
 console.log(find10) //undefined 
 
+//indexOf (return index of element)
+console.log(arr.indexOf(5))
+console.log(arr.indexOf(4))
+console.log(arr.indexOf(3))
 
 
