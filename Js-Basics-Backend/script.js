@@ -2,7 +2,8 @@ console.log("Hellow")
 
 let ar = ["Piyush",true,1,2,{name:"Umesh"},false,function(){console.log("Function")}]
 console.log(ar)
-
+console.log(ar[0])
+console.log(ar[45])
 console.log()
 
 //array methods
