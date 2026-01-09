@@ -1,4 +1,6 @@
-React components
-useState 
+React components (done)
+useState (done)
 context API
 local storage
+tailwind
+react icons
