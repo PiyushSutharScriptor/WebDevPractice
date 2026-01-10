@@ -36,3 +36,14 @@ obj3.name = "Piyush"
 console.log(obj3); //the name value do not change
 
 
+//deep copy = new object is created with values and do not refer to the original object
+let obj5 = {
+    name : "Umesh",
+    city : "Karimnagar",
+    college : "Lords"
+}
+let dup = {...obj5}
+console.log(dup);
+
+
+
