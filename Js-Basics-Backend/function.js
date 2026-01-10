@@ -9,3 +9,20 @@ console.log(fun.length)
 //Length of function = number of parameters passed to it.
 //Reason = function are objects in js 
 
+
+//function call
+const a = ()=>{
+    return 12;
+}
+const b = ()=>{
+    return true;
+}
+
+console.log(a())
+let ans = a()
+console.log(ans);
+console.log(b());
+
+
+
+
