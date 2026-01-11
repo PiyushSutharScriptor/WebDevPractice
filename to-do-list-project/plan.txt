@@ -1,6 +1,11 @@
-React components (done)
-useState (done)
+// components and library used 
+
+Vite
+React components 
+useState 
+useEffect 
 context API
 local storage
 tailwind
 react icons
+sonner library 
