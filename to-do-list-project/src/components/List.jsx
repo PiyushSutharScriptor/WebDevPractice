@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { FaCircleCheck } from "react-icons/fa6";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { TaskContext } from '../context/TaskContext.jsx';
+import { toast, Toaster } from 'sonner';
 
 const List = () => {
 
@@ -24,6 +25,9 @@ const List = () => {
                 const doneArr = tasks.map((item) => {
                   return item.id === el.id ? {...item,completed:!item.completed} : item;
                 })
+                toast.success(
+                  el.completed ? "Task Pending" : "Task Completed"
+                )
                 setTasks(doneArr)
               }}
               className={el.completed ? "text-red-500 cursor-pointer" : "cursor-pointer rounded hover:text-red-500 hover:bg-invisible"}><FaCircleCheck /></button>
@@ -34,6 +38,7 @@ const List = () => {
                 let newArr = tasks.filter(item => item.id !== el.id);
                 console.log(newArr);
                 setTasks(newArr)
+                toast.error("Task Deleted")
               }}
               className='cursor-pointer rounded hover:text-red-500 hover:bg-invisible'><RiDeleteBin5Fill /></button>
           </div>
