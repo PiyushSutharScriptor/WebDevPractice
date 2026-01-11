@@ -12,7 +12,7 @@ const List = () => {
 
     <>
       {tasks.map((el) => { 
-        return <div  key={el.id} className='flex px-3 mb-2 py-4 text-xl bg-gray-300 text-black justify-between w-1/3 rounded-xl'>
+        return <div  key={el.id} className='flex px-3 mb-2 py-4 text-xl bg-gray-300 text-black justify-between w-1/3 rounded-xl break-all'>
 
           {/* Task Name */}
           <h1 className={el.completed ? "line-through" : ""}>{el.activity}</h1>

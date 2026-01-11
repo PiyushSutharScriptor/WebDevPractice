@@ -14,7 +14,7 @@ const Add = () => {
       onChange={(e)=>{
         setVal(e.target.value);
       }}
-      className='border-2 pr-25 pl-4 py-2.5 rounded-3xl rounded-r-none' type="text" placeholder='Enter Task' 
+      className='border-2 px-4 py-2.5 rounded-3xl rounded-r-none w-xl' type="text" placeholder='Enter Task' 
       />
 
       <button 
