@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { TaskContext } from '../context/TaskContext'
+import { toast } from 'sonner';
 
 const Add = () => {
 
@@ -13,14 +14,18 @@ const Add = () => {
       onChange={(e)=>{
         setVal(e.target.value);
       }}
-      className='border-2 pr-25 pl-3 py-2.5 rounded-3xl rounded-r-none' type="text" placeholder='Enter Task' 
+      className='border-2 pr-25 pl-4 py-2.5 rounded-3xl rounded-r-none' type="text" placeholder='Enter Task' 
       />
 
       <button 
       onClick={()=>{
         let idx = Date.now();
-        setTasks([...tasks,{id:idx,activity:val,completed:false}]);
-        console.log(tasks)
+        if(val.length>0){
+          setTasks([...tasks,{id:idx,activity:val,completed:false}]);
+          toast.success("Task Added")
+          setVal("")
+        }
+        else toast.error("Add Note")
       }}
       className='border-2 border-white hover:bg-gray-500 bg-green-400 font-semibold text-black cursor-pointer px-2 py-2.5 rounded rounded-l-none text-left hover:text-white hover:border-white'>Add</button>
     </div>
