@@ -5,41 +5,41 @@ import { TaskContext } from '../context/TaskContext.jsx';
 
 const List = () => {
 
-  const{tasks, setTasks} = useContext(TaskContext)
+  const { tasks, setTasks } = useContext(TaskContext)
 
   return (
 
-    <>  
-    {tasks.map((el)=>{
-        return <div className='flex px-3 mb-2 py-4 text-xl bg-gray-300 text-black justify-between w-1/3 rounded-xl'>
+    <>
+      {tasks.map((el) => { 
+        return <div  key={el.id} className='flex px-3 mb-2 py-4 text-xl bg-gray-300 text-black justify-between w-1/3 rounded-xl'>
 
           {/* Task Name */}
-        <h1 className={el.completed ? "line-through" : ""}>{el.activity}</h1>
+          <h1 className={el.completed ? "line-through" : ""}>{el.activity}</h1>
 
-        <div className='gap-3 text-3xl flex'>
+          <div className='gap-3 text-3xl flex'>
 
-          {/* Done Btn */}
-          <button   
-          onClick={()=>{
-            let taskCopy = tasks.map(item => ({ ...item }));
-            taskCopy[el.id-1].completed = !(taskCopy[el.id-1].completed);
-            console.log(taskCopy)
-            setTasks(taskCopy)
-          }}
-          className={el.completed ? "text-red-500 cursor-pointer" : "cursor-pointer rounded hover:text-red-500 hover:bg-invisible"}><FaCircleCheck /></button>
+            {/* Done Btn */}
+            <button
+              onClick={() => {
+                const doneArr = tasks.map((item) => {
+                  return item.id === el.id ? {...item,completed:!item.completed} : item;
+                })
+                setTasks(doneArr)
+              }}
+              className={el.completed ? "text-red-500 cursor-pointer" : "cursor-pointer rounded hover:text-red-500 hover:bg-invisible"}><FaCircleCheck /></button>
 
-          {/* Delete Btn */}
-          <button 
-          onClick={()=>{
-            let newArr = tasks.filter(item => item.id!==el.id);
-            console.log(newArr);
-            setTasks(newArr)
-          }} 
-          className='cursor-pointer rounded hover:text-red-500 hover:bg-invisible'><RiDeleteBin5Fill /></button>
+            {/* Delete Btn */}
+            <button
+              onClick={() => {
+                let newArr = tasks.filter(item => item.id !== el.id);
+                console.log(newArr);
+                setTasks(newArr)
+              }}
+              className='cursor-pointer rounded hover:text-red-500 hover:bg-invisible'><RiDeleteBin5Fill /></button>
+          </div>
+
         </div>
-
-      </div>
-    })}
+      })}
     </>
   )
 }

@@ -4,7 +4,7 @@ import { TaskContext } from '../context/TaskContext'
 const Add = () => {
 
   const{tasks,setTasks} = useContext(TaskContext)
-  const{val,setVal} = useState("");
+  const[val,setVal] = useState("");
 
   return (
     <div className='text-xl mb-6'>
@@ -12,17 +12,15 @@ const Add = () => {
       value={val}
       onChange={(e)=>{
         setVal(e.target.value);
-        console.log(val)
       }}
-      className='border-2 pr-10 pl-3 py-2.5 rounded-3xl rounded-r-none' type="text" placeholder='Enter Task' 
+      className='border-2 pr-25 pl-3 py-2.5 rounded-3xl rounded-r-none' type="text" placeholder='Enter Task' 
       />
 
       <button 
       onClick={()=>{
-        let idx = tasks.length+1;
-        const newArr = [...tasks,{id:idx,activity:{val},completed:false}]
-        console.log(newArr)
-        setTasks(newArr);
+        let idx = Date.now();
+        setTasks([...tasks,{id:idx,activity:val,completed:false}]);
+        console.log(tasks)
       }}
       className='border-2 border-white hover:bg-gray-500 bg-green-400 font-semibold text-black cursor-pointer px-2 py-2.5 rounded rounded-l-none text-left hover:text-white hover:border-white'>Add</button>
     </div>
