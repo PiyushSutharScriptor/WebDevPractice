@@ -17,6 +17,7 @@ const Add = () => {
       className='border-2 px-4 py-2.5 rounded-3xl rounded-r-none w-xl' type="text" placeholder='Enter Task' 
       />
 
+      {/* Add Button */}
       <button 
       onClick={()=>{
         let idx = Date.now();

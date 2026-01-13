@@ -19,7 +19,7 @@ const List = () => {
 
           <div className='gap-3 text-3xl flex'>
 
-            {/* Done Btn */}
+            {/* Done Button */}
             <button
               onClick={() => {
                 const doneArr = tasks.map((item) => {
@@ -32,7 +32,7 @@ const List = () => {
               }}
               className={el.completed ? "text-red-500 cursor-pointer" : "cursor-pointer rounded hover:text-red-500 hover:bg-invisible"}><FaCircleCheck /></button>
 
-            {/* Delete Btn */}
+            {/* Delete Button */}
             <button
               onClick={() => {
                 let newArr = tasks.filter(item => item.id !== el.id);
