@@ -35,3 +35,10 @@ fs.unlink("fileModule.txt",(err)=>{
     if(err) console.error(err)
     console.log("File deleted")
 })
+
+//remove directory
+fs.rmdir("Demoo" ,  {recursive:true} , (err)=>{
+    if(err) console.error(err)
+    console.log("Directory removed")
+})
+
