@@ -25,12 +25,22 @@ app.use((req,res,next)=>{
     next();
 })
 
-
 app.get('/about' ,(req,res)=>{
     console.log("Route called")
     res.send("Middleware About Page")
 })
 
+app.get("/products" , (req,res,next)=>{
+    return next(new Error("Something went wrong")) //prints in console
+})
+
+//error handling
+app.use((err,req,res,next)=>{
+    console.log(err)
+    res.status(500).send("Error handling...") //shows in frontend
+})
+
+//listen port
 app.listen(port , ()=>{
     console.log("Server running...")
 })
