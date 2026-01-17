@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EJS Practical</title>
+
+    <!-- stylesheet link -->
+    <link rel="stylesheet" href="stylesheets/index.css">
+
 </head>
 <body>
-    <h1>Main Page of EJS</h1>
-    <h2><%= name%></h2>
+
+    <!-- script file link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="/javascripts/first.js"></script>
+
+    <h1 class="font-bold">Main Page of EJS</h1>
+    <h2 class="uppercase"><%= name%></h2>
     <h2><%= 2+20%></h2>
+
 </body>
 </html>
