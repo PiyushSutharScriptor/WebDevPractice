@@ -12,15 +12,25 @@
     <div class="w-full bg-black min-h-screen text-white px-10">
 
         <!-- form -->
-        <div class="flex flex-col items-center pt-4 ">
+        <form method="post" action="/create" class="flex flex-col items-center pt-4 ">
             <h1 class="pb-4 text-green-400 text-6xl font-bold ">Notes Mini Project</h1>
 
-            <input class="bg-zinc-900 border-2 w-full border-gray-300 p-3 my-3 rounded" type="text" placeholder="Enter Input">
+            <input 
+                class="bg-zinc-900 border-2 w-full border-gray-300 p-3 my-3 rounded" 
+                type="text" 
+                placeholder="Enter Input"
+                name="title"
+            >
 
-            <textarea rows="7" class="bg-zinc-900 border-2 w-full  border-gray-300 p-3 rounded my-3 resize-none" placeholder="Enter details"></textarea>
+            <textarea 
+                rows="7" 
+                class="bg-zinc-900 border-2 w-full  border-gray-300 p-3 rounded my-3 resize-none"  
+                placeholder="Enter details"
+                name="details"
+            ></textarea>
 
             <button class="bg-zinc-900 hover:scale-90 transition border-2 border-green-300 p-3 rounded font-semibold text-xl hover:bg-green-300 cursor-pointer hover:text-black">Add Note</button>
-        </div>
+        </form>
 
         <!-- tasks -->
         <div class="mt-10 pb-10 flex gap-6 flex-wrap">
@@ -28,8 +38,8 @@
             <% if(files.length > 0){ %>
                 <% files.forEach(file => { %>
                     <div class="w-70 p-3 hover:scale-110 transition rounded border-green-400 border-2 bg-zinc-900">
-                    <h1 class="text-2xl font-semibold tracking-10 mb-2">This is heading Lorem ipsum dolor sit.</h1>
-                    <a href="#" class="text-blue-300 font-md">Read Here.</a>
+                    <h1 class="text-2xl font-semibold tracking-10 mb-2 truncate"><%= file %></h1>
+                    <a href="/files/<%=file%>" class="text-blue-300 font-md">Read Here.</a>
             </div>
                 <% }) %>
             <%} else{ %>
