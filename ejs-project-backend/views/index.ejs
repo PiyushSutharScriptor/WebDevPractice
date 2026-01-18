@@ -25,12 +25,20 @@
         <!-- tasks -->
         <div class="mt-10 pb-10 flex gap-6 flex-wrap">
 
-            
-            <div class="w-70 p-3 hover:scale-110 transition rounded border-green-400 border-2 bg-zinc-900">
-                <h1 class="text-2xl font-semibold tracking-10 mb-2">This is heading Lorem ipsum dolor sit.</h1>
-                <a href="#" class="text-blue-300 font-md">Read Here.</a>
+            <% if(files.length > 0){ %>
+                <% files.forEach(file => { %>
+                    <div class="w-70 p-3 hover:scale-110 transition rounded border-green-400 border-2 bg-zinc-900">
+                    <h1 class="text-2xl font-semibold tracking-10 mb-2">This is heading Lorem ipsum dolor sit.</h1>
+                    <a href="#" class="text-blue-300 font-md">Read Here.</a>
             </div>
+                <% }) %>
+            <%} else{ %>
+                <h1 class="text-2xl text-zinc-500 font-semibold">No Tasks Yet.</h1>
+            <% } %>
+            
+            
 
+            
             
         </div>
 
