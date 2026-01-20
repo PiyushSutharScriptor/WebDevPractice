@@ -43,6 +43,13 @@ app.get('/edit/:filename' , (req,res)=>{
     res.render('edit' , {fname:req.params.filename})
 })
 
+app.post('/edit' , (req,res)=>{
+    fs.rename(`./files/${req.body.oldTitle}`,`./files/${req.body.newTitle}`,(err)=>{
+        if(err) console.log(err)
+        res.redirect('/')
+    })
+})
+
 app.listen(port, ()=>{
     console.log("server running...")
 })
