@@ -43,15 +43,13 @@
                     <h1 class="text-2xl font-semibold tracking-10 mb-2 truncate"><%= val %></h1>
 
                     <a href="/file/<%= val %>" class="text-blue-300 font-md">Read Here.</a>
+
+                    <a href="/edit/<%= val %>" class="text-blue-300 font-md">Edit</a>
             </div>
                 <% }) %>
             <%} else{ %>
                 <h1 class="text-2xl text-zinc-500 font-semibold">No Tasks Yet.</h1>
             <% } %>
-            
-            
-
-            
             
         </div>
 

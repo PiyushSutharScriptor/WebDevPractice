@@ -39,6 +39,10 @@ app.get('/file/:filename' , (req,res)=>{
     })
 })
 
+app.get('/edit/:filename' , (req,res)=>{
+    res.render('edit')
+})
+
 app.listen(port, ()=>{
     console.log("server running...")
 })
