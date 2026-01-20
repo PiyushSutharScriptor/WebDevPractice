@@ -41,10 +41,13 @@
                     <div class="w-70 p-3 hover:scale-110 transition rounded border-green-400 border-2 bg-zinc-900">
 
                     <h1 class="text-2xl font-semibold tracking-10 mb-2 truncate"><%= val %></h1>
+                    
+                    <div class="flex justify-between mx-2">
 
-                    <a href="/file/<%= val %>" class="text-blue-300 font-md">Read Here.</a>
-
-                    <a href="/edit/<%= val %>" class="text-blue-300 font-md">Edit</a>
+                        <a href="/file/<%= val %>" class="text-blue-300 font-md hover:text-cyan-300">Read Here.</a>
+                        
+                        <a href="/edit/<%= val %>" class="text-blue-300 font-md hover:text-cyan-300">Edit Here.</a>
+                    </div>
             </div>
                 <% }) %>
             <%} else{ %>
