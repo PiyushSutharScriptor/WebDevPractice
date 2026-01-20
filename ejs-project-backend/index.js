@@ -37,10 +37,10 @@ app.get('/file/:filename' , (req,res)=>{
     fs.readFile(`./files/${req.params.filename}`,'utf-8',(err,data)=>{
         res.render('showFile' ,{fname:req.params.filename , fdata:data })
     })
-})
+})          
 
 app.get('/edit/:filename' , (req,res)=>{
-    res.render('edit')
+    res.render('edit' , {fname:req.params.filename})
 })
 
 app.listen(port, ()=>{
