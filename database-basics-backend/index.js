@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const connectDb = require('./config/db')
 const router = require('./routes/userRoute')
+const studentRouter = require('./routes/studentRoute')
 
 //express loading
 const app = express();
@@ -15,6 +16,7 @@ connectDb()
 
 //user routing 
 app.use('/user',router)
+app.use('/profile',studentRouter)
 
 app.get('/' ,(req,res)=>{
     res.send("Home Page")
