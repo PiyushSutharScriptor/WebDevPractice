@@ -31,7 +31,7 @@ studentRouter.post('/student'  ,async(req,res)=>{
     catch(err){
         res.status(501).json({
             message : "Error in adding data", err
-        })
+        })                              
     }
 })
 
