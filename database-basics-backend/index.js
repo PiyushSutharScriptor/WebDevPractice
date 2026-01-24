@@ -6,7 +6,7 @@ const router = require('./routes/userRoute')
 
 //express loading
 const app = express();
-
+app.use(express.json())
 //logad environment variables from .env file
 dotenv.config()
 
