@@ -13,7 +13,7 @@ dotenv.config()
 
 //mongoDB function execution
 connectDb()
-
+    
 //user routing 
 app.use('/user',router)
 app.use('/profile',studentRouter)

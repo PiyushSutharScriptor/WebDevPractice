@@ -2,6 +2,7 @@ const express = require('express')
 const student = require('../models/studentSchema')
 const studentRouter = express.Router()
 
+//get
 studentRouter.get('/student' , async(req,res)=>{
     try{
         const studentDta = await student.find()
@@ -18,6 +19,7 @@ studentRouter.get('/student' , async(req,res)=>{
     }
 })
 
+//post
 studentRouter.post('/student'  ,async(req,res)=>{
     try{
         const data = req.body
@@ -32,6 +34,34 @@ studentRouter.post('/student'  ,async(req,res)=>{
         res.status(501).json({
             message : "Error in adding data", err
         })                              
+    }
+})
+
+//put
+studentRouter.put('/student/:id' , async(req,res)=>{
+    try{
+        const sId = req.params.id;
+        const newData = req.body;
+
+        const updateStu = await student.findByIdAndUpdate(
+            sId,newData,{new:true}
+        )
+
+        if(!updateStu){
+            res.status(501).json({
+                message:"Student Not Updated"
+            })
+        }
+        res.status(201).json({
+            message:"Student Updated Successfully",
+            student:updateStu
+        })
+    }
+    catch(err){
+        console.log(err)
+        res.status(501).json({
+            message:"Student Not Updated",err
+        })
     }
 })
 
