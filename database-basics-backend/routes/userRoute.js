@@ -64,10 +64,25 @@ router.put('/:id' , async(req,res)=>{
 
 router.delete('/:id' , async(req,res)=>{
     try{
-        
+        const userId = req.params.id;
+
+        const deleteUser = await user.findByIdAndDelete(userId)
+
+        if(!deleteUser){
+            res.status(500).json({
+                message:"User Not Deleted"
+            })
+        }
+
+        res.status(200).json({
+            message:"User Deleted",
+            user:deleteUser
+        })
     }
     catch(err){
-
+        res.status(500).json({
+            message:"User Deleted",err
+        })
     }
 })
 
