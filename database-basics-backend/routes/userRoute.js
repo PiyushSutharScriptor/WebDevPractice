@@ -3,11 +3,13 @@ const user = require('../models/userSchema')
 
 const router = express.Router();
 
+//get (without try catch )
 router.get('/' , async(req,res)=>{
     const userData = await user.find();
     res.json(userData)
 })
 
+//post (with try catch)
 router.post('/' , async(req,res)=>{
     try{
         const userData = req.body
@@ -24,7 +26,37 @@ router.post('/' , async(req,res)=>{
             message:err.message
         })
     }
+})
 
+//put (with try catch)
+router.put('/:id' , async(req,res)=>{
+    try{
+
+        const userId = req.params.id;
+        const newUser = req.body;
+        
+        const updatedUser = await user.findByIdAndUpdate(
+            userId,
+            newUser,
+            {new:true}
+        )
+        
+        if(!updatedUser){
+            res.status(501).json({
+                message:"User not updated"
+            })
+        }
+        
+        res.status(201).json({
+            message:"User Updated Successfully",
+            user:updatedUser
+        })
+    }
+    catch(err){
+        res.status(501).json({
+            message:"User Not Updated",err
+        })
+    }
 })
 
 module.exports = router
