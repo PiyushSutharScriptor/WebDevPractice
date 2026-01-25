@@ -38,7 +38,10 @@ router.put('/:id' , async(req,res)=>{
         const updatedUser = await user.findByIdAndUpdate(
             userId,
             newUser,
-            {new:true}
+            {new:true , runValidators:true}
+            // the runValidators is used to match the updatedUser 
+            // with the schema (default the data will store directly) 
+            // so avoid error in data we use runValidators
         )
         
         if(!updatedUser){

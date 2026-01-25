@@ -44,8 +44,11 @@ studentRouter.put('/student/:id' , async(req,res)=>{
         const newData = req.body;
 
         const updateStu = await student.findByIdAndUpdate(
-            sId,newData,{new:true}
+            sId,newData,{new:true,runValidators:true}
         )
+            // the runValidators is used to match the updatedUser 
+            // with the schema (default the data will store directly) 
+            // so avoid error in data we use runValidators
 
         if(!updateStu){
             res.status(501).json({
