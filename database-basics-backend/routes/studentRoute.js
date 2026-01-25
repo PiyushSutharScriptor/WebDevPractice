@@ -68,4 +68,28 @@ studentRouter.put('/student/:id' , async(req,res)=>{
     }
 })
 
+studentRouter.delete('/student/:id' , async(req,res)=>{
+    try{
+        const studentId = req.params.id;
+
+        const deleteStu = await student.findByIdAndDelete(studentId)
+
+        if(!deleteStu){
+            res.status(500).json({
+                message:"Student Not Deleted"
+            })
+        }
+
+        res.status(200).json({
+            message:"Student Deleted",
+            studentDetails:deleteStu
+        })
+    }
+    catch(err){
+        res.status(500).json({
+            message:"Student Not Deleted",err
+        })
+    }
+})
+
 module.exports = studentRouter
