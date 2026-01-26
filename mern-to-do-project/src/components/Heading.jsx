@@ -8,7 +8,7 @@ const Heading = () => {
     <div className='pt-8 '>
         <div className='flex items-center text-white text-3xl font-bold sm:text-5xl gap-4'>
           <h1 className=''>Hello<span className='text-green-400'>,</span> Payush</h1>
-          <span className='text-green-400'><SiHey /></span>
+          <span className='text-green-400 transition hover:animate-[shake_0.3s_ease-in-out_infinite]'><SiHey /></span>
         </div>
 
         <div className='text-gray-600 font-medium text-2xl mt-10 flex items-center  gap-3'>

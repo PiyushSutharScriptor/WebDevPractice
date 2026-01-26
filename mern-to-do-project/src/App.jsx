@@ -6,7 +6,7 @@ import Line from './components/Line'
 
 const App = () => {
   return (
-    <div className='bg-black h-screen px-10'>
+    <div className='bg-black h-full px-10 py-6'>
       <Heading />
       <AddTask />
       <Line />
