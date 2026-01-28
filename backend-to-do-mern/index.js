@@ -1,8 +1,11 @@
 const express = require('express')
 const dotenv = require('dotenv')
+const connectDb = require('./config/db')
 
 dotenv.config();
 const app = express();
+
+connectDb()
 
 app.get('/' , (req,res)=>{
     res.end("Main Page")
