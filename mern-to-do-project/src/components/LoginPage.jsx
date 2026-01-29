@@ -7,7 +7,7 @@ const LoginPage = () => {
 
         <form className='border-2 bg-zinc-900 p-5 rounded-3xl sm:w-1/3 text-white border-green-400 flex items-center flex-col'>
 
-          <h1 className='text-5xl mt-10 pb-1 font-bold '>Login</h1>
+          <h1 className='text-6xl mt-10 pb-1 font-bold '>Login</h1>
           <h1 className='text-zinc-400 pb-8'>Login to continue</h1>
          
           <input className='bg-black  w-full text-xl p-4 mb-3 rounded' type="email" placeholder='Enter Email' />
