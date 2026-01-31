@@ -22,6 +22,7 @@ formRouter.post('/add' , async(req,res)=>{
     }
 })
 
+
 //get data (done)
 formRouter.get('/get' , async(req,res)=>{
     try{
@@ -45,8 +46,35 @@ formRouter.get('/get' , async(req,res)=>{
     }
 })
 
-//modify 
-//delete
+
+//update
+formRouter.put('/update/:id',async(req,res)=>{
+
+    try{
+        const formId = req.params.id;
+        const newUser = req.body;
+        
+        const adUser = await form.findByIdAndUpdate(formId,newUser,{new:true , runValidators:true})
+        
+        if(!adUser){
+            res.status(500).json({
+                message:"No form data found to update",
+            })
+        }
+        else{
+            res.status(201).json({
+                message:"Form data updated",
+                form:adUser
+            })
+        }
+    }
+    catch(err){
+        res.status(501).json({
+            message:"Error in updating form data",err
+        })
+    }
+})
+
 
 
 module.exports = formRouter;
