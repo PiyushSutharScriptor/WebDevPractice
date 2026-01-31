@@ -75,6 +75,29 @@ formRouter.put('/update/:id',async(req,res)=>{
     }
 })
 
+//delete
+formRouter.delete('/delete/:id' , async(req,res)=>{
+    try{
+        const formId = req.params.id;
+        const delForm = await form.findByIdAndDelete(formId);
 
+        if(!delForm){
+            res.status(500).json({
+                message:"Unable to find form for delete"
+            })
+        }
+        else{
+            res.status(200).json({
+                message:"Form deleted",
+                form:delForm
+            })
+        }
+    }
+    catch(err){
+        res.status(200).json({
+            message:"Error in deleting form", err
+        })
+    }
+})
 
 module.exports = formRouter;
