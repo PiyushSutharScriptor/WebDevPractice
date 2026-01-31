@@ -4,7 +4,23 @@ const form = require('../models/FormModel')
 const formRouter = express.Router()
 
 //add data
+formRouter.post('/add' , async(req,res)=>{
+    try{
+        const data = req.body;
+        console.log(data)
+        const newData = await form.create(data);
 
+        res.status(200).json({
+            message:"Form Added",
+            form:newData
+        })
+    }
+    catch(err){
+        res.status(501).json({
+            message:"Error in adding form ",err
+        })
+    }
+})
 
 //get data (done)
 formRouter.get('/get' , async(req,res)=>{
@@ -12,27 +28,25 @@ formRouter.get('/get' , async(req,res)=>{
         const data = await form.find();
         if(data){
             res.status(200).json({
-                message:"Data Fetched",
+                message:"Form Data Fetched",
                 form:data
             })
         }
         else{
             res.status(501).json({
-                message:"No Data Found"
+                message:"No Form Data Found"
             })
         }
     }
     catch(err){
         res.status(501).json({
-            message:"Error in fetching data",err
+            message:"Error in fetching form data",err
         })
     }
 })
 
 //modify 
-formRouter.get('/' , (req,res)=>{
-    res.send("Heierjhiej")
-})
+//delete
 
 
 module.exports = formRouter;

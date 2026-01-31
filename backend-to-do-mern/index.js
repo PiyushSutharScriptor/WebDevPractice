@@ -7,7 +7,7 @@ dotenv.config();
 const app = express();
 
 connectDb()
-
+app.use(express.json())
 app.use('/form' , formRouter)
 
 app.get('/' , (req,res)=>{
