@@ -2,16 +2,20 @@ const express = require('express')
 const dotenv = require("dotenv")
 const cookieParser = require('cookie-parser')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 const app = express();
 
 dotenv.config() 
 app.use(cookieParser())
+
+
 //with cookie
 app.get('/' , (req,res)=>{
     res.cookie("Name"," Piyush Suthar")
     res.send("Done with setting cookie")
 })
+
 
 //without cookie
 app.get('/data' , (req,res)=>{
@@ -42,6 +46,16 @@ app.get('/comp' , (req,res)=>{
 
     res.send("Compare using bcrypt")
 })
+
+//jwt
+app.get('/jwt' , (req,res)=>{
+    const token = jwt.sign({email:"piyush@gmail.com"},process.env.STR)
+    
+    res.cookie("token" , token)
+    res.send("JWT attached to cookie")
+})
+
+
 
 
 app.listen(process.env.PORT, ()=>{
