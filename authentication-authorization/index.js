@@ -55,8 +55,11 @@ app.get('/jwt' , (req,res)=>{
     res.send("JWT attached to cookie")
 })
 
-
-
+//reading jwt
+app.get('/read' , (req,res)=>{
+    console.log(req.cookies)
+    res.send("Reading JWT token")
+})
 
 app.listen(process.env.PORT, ()=>{
     console.log("Server Running ...")
