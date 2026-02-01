@@ -34,6 +34,16 @@ app.get('/pass' , (req,res)=>{
 })
 
 
+//bcrypt compare (true/false)
+app.get('/comp' , (req,res)=>{
+    bcrypt.compare(process.env.PASS, process.env.EPASS , (err,res)=>{
+        console.log(res)
+    })
+
+    res.send("Compare using bcrypt")
+})
+
+
 app.listen(process.env.PORT, ()=>{
     console.log("Server Running ...")
 })
