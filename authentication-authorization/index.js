@@ -58,7 +58,15 @@ app.get('/jwt' , (req,res)=>{
 //reading jwt
 app.get('/read' , (req,res)=>{
     console.log(req.cookies)
+    // console.log(req.cookies.token)
     res.send("Reading JWT token")
+})
+
+//verifying jwt
+app.get('/verify' , (req,res)=>{
+    let data = jwt.verify(req.cookies.token , process.env.STR)
+    console.log(data)
+    res.send("Jwt verify")
 })
 
 app.listen(process.env.PORT, ()=>{
