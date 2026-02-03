@@ -16,6 +16,7 @@ exports.signup = async(req,res)=>{
         const findUser = await user.findOne({email:data.email})
 
         if(findUser==null){
+            //bcrypt hash
             const salt = await bcrypt.genSalt(10)
             const hash = await bcrypt.hash(data.password,salt)
 
@@ -60,16 +61,26 @@ exports.login = async(req,res)=>{
 
         const findUser = await user.findOne({email:data.email})
         if(findUser==null){
-            return res.status(400).json({
+            return res.status(404).json({
                 message:"User do not exists"
             })
         }
 
+        //bcrypt compare
         const pass = await bcrypt.compare(data.password,findUser.password)
 
         if(pass){
+
+            //jwt 
+            const token = jwt.sign(
+                {_id:findUser._id},
+                process.env.JWT_SECRET,
+                {expiresIn:"1d"}
+            )
+
             res.status(200).json({
-                message:"User Login Successful"
+                message:"User Login Successful",
+                token:token
             })
         }
         else{
