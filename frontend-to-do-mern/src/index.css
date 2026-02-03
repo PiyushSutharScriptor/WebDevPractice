@@ -4,6 +4,10 @@
     font-family: "Rubik";
 }
 
+body{
+  background-color: black;
+}
+
 @keyframes shake {
   0%,100% { transform: translateX(0); }
   25% { transform: translateX(-4px); }
