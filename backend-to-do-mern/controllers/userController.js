@@ -47,3 +47,41 @@ exports.signup = async(req,res)=>{
         })
     }
 }
+
+exports.login = async(req,res)=>{
+    try{
+        const data = req.body
+
+        if(!data.email || !data.password){
+            return res.status(400).json({
+                message:"email and password are required"
+            })
+        }
+
+        const findUser = await user.findOne({email:data.email})
+        if(findUser==null){
+            return res.status(400).json({
+                message:"User do not exists"
+            })
+        }
+
+        const pass = await bcrypt.compare(data.password,findUser.password)
+
+        if(pass){
+            res.status(200).json({
+                message:"User Login Successful"
+            })
+        }
+        else{
+            res.status(400).json({
+                message:"Incorrect password"
+            })
+        }
+    }
+    catch(err){
+        res.status(500).json({
+            message:"Error in login",
+            error:err
+        })
+    }
+}
