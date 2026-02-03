@@ -1,12 +1,14 @@
 const express = require('express')
 const form = require('../models/FormModel')
+const auth = require('../middlewares/authmiddleware')
 
 const formRouter = express.Router()
 
 //add data
-formRouter.post('/add' , async(req,res)=>{
+formRouter.post('/add', auth, async(req,res)=>{
     try{
         const data = req.body;
+        data.user = req.user._id
         console.log(data)
         const newData = await form.create(data);
 
@@ -24,9 +26,9 @@ formRouter.post('/add' , async(req,res)=>{
 
 
 //get data (done)
-formRouter.get('/get' , async(req,res)=>{
+formRouter.get('/get', auth, async(req,res)=>{
     try{
-        const data = await form.find();
+        const data = await form.find({user:req.user._id});
         if(data){
             res.status(200).json({
                 message:"Form Data Fetched",
@@ -48,13 +50,13 @@ formRouter.get('/get' , async(req,res)=>{
 
 
 //update
-formRouter.put('/update/:id',async(req,res)=>{
+formRouter.put('/update/:id',auth, async(req,res)=>{
 
     try{
         const formId = req.params.id;
         const newUser = req.body;
         
-        const adUser = await form.findByIdAndUpdate(formId,newUser,{new:true , runValidators:true})
+        const adUser = await form.findOneAndUpdate({_id:formId,user:req.user._id},newUser,{new:true , runValidators:true})
         
         if(!adUser){
             res.status(500).json({
@@ -76,10 +78,10 @@ formRouter.put('/update/:id',async(req,res)=>{
 })
 
 //delete
-formRouter.delete('/delete/:id' , async(req,res)=>{
+formRouter.delete('/delete/:id', auth, async(req,res)=>{
     try{
         const formId = req.params.id;
-        const delForm = await form.findByIdAndDelete(formId);
+        const delForm = await form.findOneAndDelete({_id:formId, user:req.user._id});
 
         if(!delForm){
             res.status(500).json({
@@ -94,7 +96,7 @@ formRouter.delete('/delete/:id' , async(req,res)=>{
         }
     }
     catch(err){
-        res.status(200).json({
+        res.status(501).json({
             message:"Error in deleting form", err
         })
     }
