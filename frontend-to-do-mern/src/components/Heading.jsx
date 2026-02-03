@@ -13,7 +13,7 @@ const Heading = () => {
     const fetchUser = async () => {
       const token = localStorage.getItem("token")
 
-      const res = await fetch("http://localhost:3000/api/me", {
+      const res = await fetch("https://web-dev-practice-azure.vercel.app/api/me", {
         headers: {
           Authorization: `Bearer ${token}`
         }

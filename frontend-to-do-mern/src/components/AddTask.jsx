@@ -13,7 +13,7 @@ const AddTask = ({ fetchTasks }) => {
 
     const token = localStorage.getItem("token")
 
-    const res = await fetch("http://localhost:3000/form/add", {
+    const res = await fetch("https://web-dev-practice-azure.vercel.app/form/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

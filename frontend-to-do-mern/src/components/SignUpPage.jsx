@@ -13,7 +13,7 @@ const SignUpPage = () => {
 
     e.preventDefault()
 
-    const response = await fetch("http://localhost:3000/api/signup", {
+    const response = await fetch("https://web-dev-practice-azure.vercel.app/api/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

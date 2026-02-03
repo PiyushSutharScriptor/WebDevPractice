@@ -4,7 +4,7 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 
-const MyTask = ({ tasks,fetchTasks}) => {
+const MyTask = ({ tasks, fetchTasks }) => {
 
   // const [tasks, setTasks] = useState([])
 
@@ -12,7 +12,7 @@ const MyTask = ({ tasks,fetchTasks}) => {
   const deleteTask = async (id) => {
     const token = localStorage.getItem("token")
 
-    const res = await fetch(`http://localhost:3000/form/delete/${id}`, {
+    const res = await fetch(`https://web-dev-practice-azure.vercel.app/form/delete/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`
@@ -46,7 +46,7 @@ const MyTask = ({ tasks,fetchTasks}) => {
 
     const token = localStorage.getItem("token")
 
-    const res = await fetch(`http://localhost:3000/form/update/${id}`, {
+    const res = await fetch(`https://web-dev-practice-azure.vercel.app/form/update/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -73,27 +73,38 @@ const MyTask = ({ tasks,fetchTasks}) => {
       <div className='flex mt-5 flex-wrap gap-4'>
 
         {tasks.map((task) => (
-          <div key={task._id} className='sm:w-72 w-full border-2 hover:scale-105 transition border-green-600 p-2 rounded bg-zinc-900'>
-            <h1 className='text-white mb-2 font-semibold text-2xl'>{task.title}</h1>
-            <p className='text-zinc-500'>{task.details}</p>
+          <div
+            key={task._id}
+            className='sm:w-72 w-full border-2 hover:scale-105 transition border-green-600 p-2 rounded bg-zinc-900 h-64 flex flex-col justify-between'
+          >
+            <div>
+              <h1 className='text-white mb-2 font-semibold text-2xl line-clamp-2 wrap-break-word'>
+                {task.title}
+              </h1>
+
+              <p className='text-zinc-500 line-clamp-5 wrap-break-word'>
+                {task.details}
+              </p>
+            </div>
 
             <div className='flex items-center justify-center gap-2 mt-2 w-full'>
-
               <button
                 onClick={() => updateTask(task._id, task.title, task.details)}
-                className='bg-yellow-500 transition gap-2 p-2 flex mt-3 rounded-md cursor-pointer text-black border-white border-2  hover:scale-90 items-center text-sm'>
+                className='bg-yellow-500 transition gap-2 p-2 flex mt-3 rounded-md cursor-pointer text-black border-white border-2 hover:scale-90 items-center text-sm'
+              >
                 <h1 className='text-xl'><FaEdit /></h1>
               </button>
 
-              <button 
+              <button
                 onClick={() => deleteTask(task._id)}
-                className='bg-red-500 transition gap-2 p-2 flex mt-3 rounded-md cursor-pointer text-white border-white border-2  hover:scale-90 items-center text-sm'>
+                className='bg-red-500 transition gap-2 p-2 flex mt-3 rounded-md cursor-pointer text-white border-white border-2 hover:scale-90 items-center text-sm'
+              >
                 <h1 className='text-xl'><RiDeleteBin6Fill /></h1>
               </button>
-
             </div>
           </div>
         ))}
+
 
       </div>
     </>

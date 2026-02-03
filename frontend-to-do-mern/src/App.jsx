@@ -16,7 +16,7 @@ const App = () => {
   const fetchTasks = async () => {
     const token = localStorage.getItem("token")
 
-    const res = await fetch("http://localhost:3000/form/get", {
+    const res = await fetch("https://web-dev-practice-azure.vercel.app/form/get", {
       headers: {
         Authorization: `Bearer ${token}`
       }

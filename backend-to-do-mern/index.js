@@ -11,7 +11,9 @@ const app = express();
 connectDb()
 app.use(express.json())
 
-app.use(cors())
+app.use(cors({
+  origin: "*"
+}))
 
 app.use('/form' , formRouter)
 app.use('/api',userRouter)
