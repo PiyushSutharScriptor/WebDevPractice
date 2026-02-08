@@ -17,9 +17,12 @@ export const conterSlice = createSlice({
         },
         decrement10 : (state)=>{
             state.value-=10
+        },
+        incrementByAmount : (state,actions)=>{
+            state.value += actions.payload
         }
     }
 })
 
-export const {increment,decrement,increment5,decrement10} = conterSlice.actions;
+export const {increment,decrement,increment5,decrement10,incrementByAmount} = conterSlice.actions;
 export default conterSlice.reducer
