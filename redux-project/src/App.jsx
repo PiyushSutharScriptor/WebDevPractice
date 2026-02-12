@@ -9,12 +9,12 @@ const App = () => {
 
       <h1>Piyush Suthar</h1>  
 
-      <button onClick={async ()=>{
+      <button className='bg-blue-600 rounded cursor-pointer hover:scale-95 px-2 py-1 m-2 font-semibold text-white' onClick={async ()=>{
         const data = await getData('cat')
         console.log(data)
       }}>Get Photos</button>
 
-      <button onClick={async ()=>{
+      <button className='bg-blue-600 rounded cursor-pointer hover:scale-95 px-2 py-1 m-2 font-semibold text-white' onClick={async ()=>{
         const data = await getVideo('cat')
         console.log(data)
       }}>Get Video</button>
