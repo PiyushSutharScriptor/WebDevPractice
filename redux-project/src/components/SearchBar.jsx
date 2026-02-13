@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { FaSearchengin } from "react-icons/fa";
+import {useDispatch} from 'react-redux'
+import { setQuery } from '../redux/features/searchSlice';
 
 const SearchBar = () => {
 
@@ -8,8 +10,11 @@ const SearchBar = () => {
   const submitHandler = (e) => {
     e.preventDefault()
     // console.log("From Submitted")
+    dispatch(setQuery(text))
     setText("")
   }
+
+  const dispatch = useDispatch()
 
   return (
     <div className='bg-zinc-700 py-3'>
