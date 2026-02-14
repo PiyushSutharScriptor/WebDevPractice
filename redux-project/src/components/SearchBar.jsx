@@ -42,12 +42,13 @@ const SearchBar = () => {
           />
 
           {/* button */}
-          <button className="h-12 px-4 bg-white text-black text-2xl flex items-center cursor-pointer justify-center hover:bg-gray-200 transition">
+          <button className="h-12 px-4 bg-white text-black text-2xl flex items-center cursor-pointer justify-center hover:bg-blue-500 transition hover:text-white">
             <FaSearchengin />
           </button>
         </div>
 
       </form>
+
     </div>
   )
 }

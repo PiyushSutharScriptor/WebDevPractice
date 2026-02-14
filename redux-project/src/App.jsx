@@ -1,6 +1,7 @@
 import React from 'react'
-import { getData, getVideo } from './api/mediaApi'
+// import { getData, getVideo } from './api/mediaApi'
 import SearchBar from './components/SearchBar'
+import Tabs from './components/Tabs'
 
 const App = () => {
 
@@ -8,6 +9,7 @@ const App = () => {
     <>
     <div>
       <SearchBar />
+      <Tabs />
     </div>
     </>
   )
