@@ -2,6 +2,7 @@ import React from 'react'
 // import { getData, getVideo } from './api/mediaApi'
 import SearchBar from './components/SearchBar'
 import Tabs from './components/Tabs'
+import ResultGrid from './components/ResultGrid'
 
 const App = () => {
 
@@ -10,6 +11,7 @@ const App = () => {
     <div>
       <SearchBar />
       <Tabs />
+      <ResultGrid />
     </div>
     </>
   )

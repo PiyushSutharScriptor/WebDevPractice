@@ -4,7 +4,7 @@ const U_KEY = import.meta.env.VITE_UNSPLASH_KEY
 const P_KEY = import.meta.env.VITE_PEXELS_KEY
 
 
-export const getData = async(query,page=1,per_page=15)=>{
+export const getPhoto = async(query,page=1,per_page=15)=>{
     try{
         const res = await axios.get('https://api.unsplash.com/search/photos',{
             params:{query,page,per_page},

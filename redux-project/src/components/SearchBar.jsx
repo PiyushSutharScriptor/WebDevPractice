@@ -17,7 +17,7 @@ const SearchBar = () => {
   const dispatch = useDispatch()
 
   return (
-    <div className='bg-zinc-700 py-3'>
+    <div className='bg-zinc-700 py-4'>
       <form onSubmit={(e)=>{
         submitHandler(e)
       }} className='flex gap-3 w-full items-center justify-around'>
@@ -27,7 +27,7 @@ const SearchBar = () => {
           <h1 className='font-extrabold pl-4 text-3xl text-white'>Media Search</h1>
         </div>
 
-        <div className="flex items-center border-2 border-white rounded-full overflow-hidden">
+        <div className="flex items-center border-2 border-white rounded-xl overflow-hidden">
           {/* search bar */}
           <input
             required
