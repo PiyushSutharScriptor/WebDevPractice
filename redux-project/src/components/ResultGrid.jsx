@@ -15,10 +15,19 @@ const ResultGrid = () => {
     }
   }
 
+  const getVideoData = async()=>{
+
+    if(activeTab=='photos'){
+      const data = await getVideo()
+      console.log(data)
+    }
+  }
+
   return (
     <>
       <div>ResultGrid</div>
       <button onClick={getPhotoData}>Click Here</button>
+      <button onClick={getVideoData}>Click Here</button>
     </>
   )
 }
