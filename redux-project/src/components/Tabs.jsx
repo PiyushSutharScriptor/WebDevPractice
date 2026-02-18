@@ -4,7 +4,7 @@ import { setActiveTabs } from '../redux/features/searchSlice'
 
 const Tabs = () => {
 
-  const btn = ['Photos','Videos']
+  const btn = ['photos','videos']
   const dispatch = useDispatch()
   const activeTab = useSelector((state)=>state.search.activeTab)  
 
