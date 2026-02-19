@@ -9,25 +9,24 @@ const ResultGrid = () => {
 
   const getPhotoData = async()=>{
 
-    if(activeTab=='photos'){
-      const data = await getPhoto()
-      console.log(data)
-    }
-  }
-
-  const getVideoData = async()=>{
+    let data;
 
     if(activeTab=='photos'){
-      const data = await getVideo()
-      console.log(data)
+      data = await getPhoto(query)
     }
+    else if(activeTab=='videos'){
+      data = await getVideo(query)
+    }
+
+    console.log(data)
+    
   }
+
 
   return (
     <>
       <div>ResultGrid</div>
-      <button onClick={getPhotoData}>Click Here</button>
-      <button onClick={getVideoData}>Click Here</button>
+      <button className='border-2 px-2 py-1 mx-2' onClick={getPhotoData}>Click Here</button>
     </>
   )
 }
