@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { getPhoto, getVideo } from '../api/mediaApi'
 import { setQuery, setLoading, setError, setResults } from '../redux/features/searchSlice'
 import { useDispatch, useSelector } from 'react-redux'
-
+            
 const ResultGrid = () => {
 
   const { query, activeTab, results, loading, error } = useSelector((store) => store.search)
@@ -12,7 +12,7 @@ const ResultGrid = () => {
     const getData = async () => {
 
       try {
-              
+
         let data = [];
         dispatch(setLoading())
         if (activeTab == 'photos') {
