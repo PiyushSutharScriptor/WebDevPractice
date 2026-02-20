@@ -12,7 +12,7 @@ const ResultGrid = () => {
     const getData = async () => {
 
       try {
-
+              
         let data = [];
         dispatch(setLoading())
         if (activeTab == 'photos') {
