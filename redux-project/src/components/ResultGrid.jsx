@@ -9,6 +9,8 @@ const ResultGrid = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
+
+    if(!query) return;
     const getData = async () => {
 
       try {
@@ -40,7 +42,7 @@ const ResultGrid = () => {
         dispatch(setResults(data))
       }
       catch (err) {
-        dispatch(setError(err))
+        dispatch(setError(err.message))
       }
     }
 
@@ -54,14 +56,13 @@ const ResultGrid = () => {
 
   return (
     <>
-      <div>ResultGrid</div>
       {
         results.map((item,idx)=>{
-          return item.title
+          return <div key={idx}>{item.title}</div> 
         })  
       }
     </>
   )
 }
-
+ 
 export default ResultGrid
