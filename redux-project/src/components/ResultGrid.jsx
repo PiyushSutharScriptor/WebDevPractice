@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { getPhoto, getVideo } from '../api/mediaApi'
 import { setQuery, setLoading, setError, setResults } from '../redux/features/searchSlice'
+import ResultCard from './ResultCard'
 import { useDispatch, useSelector } from 'react-redux'
             
 const ResultGrid = () => {
@@ -10,7 +11,8 @@ const ResultGrid = () => {
 
   useEffect(() => {
 
-    if(!query) return;
+    if(!query) return ;
+
     const getData = async () => {
 
       try {
@@ -55,13 +57,18 @@ const ResultGrid = () => {
 
 
   return (
-    <>
+    <div className='w-full mx-auto'>
+      
+    <div className='flex flex-wrap gap-4 my-8'>
       {
         results.map((item,idx)=>{
-          return <div key={idx}>{item.title}</div> 
+          return <div key={idx}>
+            <ResultCard item={item}/>
+          </div> 
         })  
       }
-    </>
+      </div>
+    </div>
   )
 }
  
