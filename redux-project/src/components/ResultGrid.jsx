@@ -57,19 +57,14 @@ const ResultGrid = () => {
 
 
   return (
-    <div className='w-full mx-auto'>
-      
-    <div className='flex flex-wrap gap-4 my-8'>
-      {
-        results.map((item,idx)=>{
-          return <div key={idx}>
-            <ResultCard item={item}/>
-          </div> 
-        })  
-      }
-      </div>
+  <div className="w-full max-w-8xl mx-auto px-6">
+    <div className="flex flex-wrap gap-4 my-8 justify-center">
+      {results.map((item, idx) => (
+        <ResultCard key={idx} item={item} />
+      ))}
     </div>
-  )
+  </div>
+);
 }
  
 export default ResultGrid
