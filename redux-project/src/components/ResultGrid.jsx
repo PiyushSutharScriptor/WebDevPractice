@@ -21,22 +21,26 @@ const ResultGrid = () => {
         dispatch(setLoading())
         if (activeTab == 'photos') {
           let response = await getPhoto(query)
+
           data = response.map((item) => ({
             id: item.id,
             type: 'photo',
             title: item.alt_description,
             thumbnail: item.urls.small,
             src: item.urls.full,
+            url:item.links.html
           }))
         }
         else if (activeTab == 'videos') {
           let response = await getVideo(query)
+          // console.log(response)
           data = response.map((item) => ({
             id: item.id,
             type: 'video',
             title: item.user.name || 'videoTitle',
             thumbnail: item.image,
             src: item.video_files[0].link,
+            url:item.url
           }))
         }
 
@@ -60,7 +64,7 @@ const ResultGrid = () => {
   <div className="w-full max-w-8xl mx-auto px-6">
     <div className="flex flex-wrap gap-4 my-8 justify-center">
       {results.map((item, idx) => (
-        <ResultCard key={idx} item={item} />
+        <a href={item.url}><ResultCard idx={idx} item={item} /></a>
       ))}
     </div>
   </div>
