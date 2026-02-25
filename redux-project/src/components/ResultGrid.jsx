@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { getPhoto, getVideo } from '../api/mediaApi'
-import { setQuery, setLoading, setError, setResults } from '../redux/features/searchSlice'
+import { setLoading, setError, setResults } from '../redux/features/searchSlice'
 import ResultCard from './ResultCard'
 import { useDispatch, useSelector } from 'react-redux'
             
@@ -61,14 +61,14 @@ const ResultGrid = () => {
 
 
   return (
-  <div className="w-full max-w-8xl mx-auto px-6">
-    <div className="flex flex-wrap gap-4 my-8 justify-center">
-      {results.map((item, idx) => (
-        <a href={item.url}><ResultCard idx={idx} item={item} /></a>
-      ))}
+    <div className="w-full max-w-8xl mx-auto px-6">
+      <div className="flex flex-wrap gap-4 my-8 justify-center">
+        {results.map((item, idx) => (
+          <ResultCard idx={idx} item={item} />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
 }
  
 export default ResultGrid
