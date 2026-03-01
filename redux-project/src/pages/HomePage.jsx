@@ -1,0 +1,28 @@
+import React from 'react'
+import SearchBar from '../components/SearchBar'
+import Tabs from '../components/Tabs'
+import ResultGrid from '../components/ResultGrid'
+import { useSelector } from 'react-redux'
+
+const HomePage = () => {
+
+    const {query} = useSelector((store)=>store.search)
+    console.log(query)
+
+    return (
+        <div>
+            <SearchBar />
+
+            {query==="" ?
+             <div className='font-bold text-2xl p-4'>Search Something !</div> :
+             <>
+                <Tabs />
+                <ResultGrid />
+             </> 
+            }
+
+        </div>
+    )
+}
+
+export default HomePage

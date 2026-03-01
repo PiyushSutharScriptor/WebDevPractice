@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FaSearchengin } from "react-icons/fa";
 import {useDispatch} from 'react-redux'
 import { setQuery } from '../redux/features/searchSlice';
+import { Link } from 'react-router-dom';
 
 const SearchBar = () => {
 
@@ -36,7 +37,7 @@ const SearchBar = () => {
               // console.log(e.target.value)
               setText(e.target.value)
             }}
-            className="w-64 px-4 h-12 bg-transparent text-white placeholder-gray-300 outline-none"
+            className="w-96 px-4 h-12 bg-transparent text-white placeholder-gray-300 outline-none"
             type="text"
             placeholder="search anything..."
           />
@@ -45,6 +46,11 @@ const SearchBar = () => {
           <button className="h-12 px-4 bg-white text-black text-2xl flex items-center cursor-pointer justify-center hover:bg-blue-500 transition hover:text-white">
             <FaSearchengin />
           </button>
+        </div>
+
+        <div className='text-white flex gap-3 font-semibold'>
+          <Link to='/' className='bg-blue-500 hover:bg-gray-500 border px-3 py-1 rounded text-base' >Search</Link>
+          <Link to='/collection' className='bg-blue-500 hover:bg-gray-500 border px-3 py-1 rounded text-base' >Collection</Link>
         </div>
 
       </form>

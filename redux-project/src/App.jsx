@@ -1,17 +1,16 @@
 import React from 'react'
-// import { getData, getVideo } from './api/mediaApi'
-import SearchBar from './components/SearchBar'
-import Tabs from './components/Tabs'
-import ResultGrid from './components/ResultGrid'
-
+import { Route, Routes } from 'react-router-dom'
+import CollectionPage from './pages/CollectionPage'
+import HomePage from './pages/HomePage'
 const App = () => {
 
   return (
     <>
     <div>
-      <SearchBar />
-      <Tabs />
-      <ResultGrid />
+      <Routes>
+        <Route path='/' element={<HomePage/>} />
+        <Route path='/collection' element={<CollectionPage/>} />
+      </Routes>
     </div>
     </>
   )
