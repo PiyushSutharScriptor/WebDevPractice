@@ -13,13 +13,13 @@ const ResultCard = (props) => {
       }
       </a>
 
-      <div className='w-full absolute capitalize bg-linear-to-b from-transparent to-black text-white p-2 bottom-0'>
-        <div className='font-medium'>{props.item.title}</div>
-        <button className='cursor-pointer mt-2 rounded bg-blue-500 text-white px-1 py-0.5 text-sm font-semibold '>Save</button>
+      <div className='w-full flex justify-center gap-2 items-center absolute capitalize bg-linear-to-b from-transparent to-black text-white p-2 bottom-0'>
+        <div className='font-medium h-14 overflow-hidden'>{props.item.title}</div>
+        <button className='cursor-pointer rounded px-2 py-1 bg-blue-500 text-white text-sm font-semibold hover:bg-blue-700 active:scale-95'>Save</button>
       </div>
 
     </div>
-  )
+  ) 
 }
 
 export default ResultCard
