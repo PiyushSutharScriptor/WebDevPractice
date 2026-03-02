@@ -1,5 +1,6 @@
 import React from 'react'
 import ResultCard from '../components/ResultCard'
+import SearchBar from '../components/SearchBar'
 
 const CollectionPage = () => {
   const data = JSON.parse(localStorage.getItem('collection')) || []
@@ -7,6 +8,7 @@ const CollectionPage = () => {
 
   return (
     <>
+    <SearchBar />
       {data.length > 1 ? (
         <div className="w-full max-w-8xl mx-auto px-6">
           <div className="flex flex-wrap gap-4 my-8">
