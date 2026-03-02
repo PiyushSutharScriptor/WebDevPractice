@@ -1,7 +1,7 @@
 import React from 'react'
 import ResultCard from '../components/ResultCard'
 import SearchBar from '../components/SearchBar'
-
+              
 const CollectionPage = () => {
   const data = JSON.parse(localStorage.getItem('collection')) || []
   console.log(data.length)
