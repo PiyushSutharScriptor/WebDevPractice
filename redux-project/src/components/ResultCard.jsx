@@ -1,4 +1,5 @@
 import React from 'react'
+import { toast } from "react-hot-toast"
 
 const ResultCard = (props) => {
 
@@ -9,9 +10,10 @@ const ResultCard = (props) => {
     // console.log(oldData)
 
     let newData = [...oldData, item];
-    console.log(newData)
+    // console.log(newData)
 
     localStorage.setItem('collection',JSON.stringify(newData))
+    toast.success('Saved')
 
   }
   return (

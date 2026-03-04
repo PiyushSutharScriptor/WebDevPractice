@@ -54,10 +54,10 @@ const ResultGrid = () => {
 
     getData()
 
-  }, [query, activeTab])
+  }, [query, activeTab,dispatch])
 
   if(error) return <h1>Error in fetching data</h1>
-  if(loading) return <h1>Loading....</h1>
+  if(loading) return <h1 className='font-bold text-2xl p-4'>Loading....</h1>
 
 
   return (

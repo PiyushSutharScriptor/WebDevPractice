@@ -3,6 +3,7 @@ import { FaSearchengin } from "react-icons/fa";
 import {useDispatch} from 'react-redux'
 import { setQuery } from '../redux/features/searchSlice';
 import { Link } from 'react-router-dom';
+import { toast } from "react-hot-toast"
 
 const SearchBar = () => {
 
@@ -12,6 +13,7 @@ const SearchBar = () => {
     e.preventDefault()
     // console.log("From Submitted")
     dispatch(setQuery(text))
+    toast.success("Searching")
     setText("")
   }
 
