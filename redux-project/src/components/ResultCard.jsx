@@ -8,6 +8,7 @@ const ResultCard = (props) => {
 
   const addToCollection = (item)=>{
     dispatch(addCollection(item))
+    toast.success("Added To Collection")
   }
 
   return (  
