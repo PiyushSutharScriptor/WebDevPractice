@@ -1,22 +1,16 @@
 import React from 'react'
 import { toast } from "react-hot-toast"
-
+import {useDispatch} from 'react-redux'
+import { addCollection } from '../redux/features/collectionSlice';
 const ResultCard = (props) => {
 
+  const dispatch = useDispatch();
+
   const addToCollection = (item)=>{
-    // console.log("Button clicked" , item)
-
-    let oldData = JSON.parse(localStorage.getItem('collection')) || [];
-    // console.log(oldData)
-
-    let newData = [...oldData, item];
-    // console.log(newData)
-
-    localStorage.setItem('collection',JSON.stringify(newData))
-    toast.success('Saved')
-
+    dispatch(addCollection(item))
   }
-  return (
+
+  return (  
     
     <div className='flex relative' key={props.idx}>
 
