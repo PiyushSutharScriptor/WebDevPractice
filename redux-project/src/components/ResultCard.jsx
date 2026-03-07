@@ -29,7 +29,7 @@ const ResultCard = (props) => {
           addToCollection(props.item)
         }} className='cursor-pointer rounded px-2 py-1 bg-blue-500 text-white text-sm font-semibold hover:bg-blue-700 active:scale-95'>Save</button>
       </div>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
 
     </div>
   ) 

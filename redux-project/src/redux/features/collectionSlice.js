@@ -44,7 +44,20 @@ const collectionSlice = createSlice({
             });
         },
         removeToast : ()=>{
-            toast.error('Removed To Collection', {
+            toast.error('Removed From Collection', {
+                position: "top-right",
+                autoClose: 1000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,    
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+            });
+        },
+        clearToast : ()=>{
+            toast.error('Removed All From Collection', {
                 position: "top-right",
                 autoClose: 1000,
                 hideProgressBar: false,
@@ -66,6 +79,7 @@ export const{
     clearCollection,
     addToast,
     removeToast,
+    clearToast,
 } = collectionSlice.actions;
 export default collectionSlice.reducer;
  

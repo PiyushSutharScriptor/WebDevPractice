@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { FaSearchengin } from "react-icons/fa";
-import {useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { setQuery } from '../redux/features/searchSlice';
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { toast } from "react-hot-toast"
 
 const SearchBar = () => {
@@ -19,40 +19,65 @@ const SearchBar = () => {
 
   const dispatch = useDispatch()
 
+  const location = useLocation();
+
   return (
-    <div className='bg-zinc-700 py-4'>
-      <form onSubmit={(e)=>{
+    <div className='bg-zinc-700 py-4 px-2'>
+      <form onSubmit={(e) => {
         submitHandler(e)
-      }} className='flex gap-3 w-full items-center justify-around'>
+      }} className='sm:flex gap-3 w-full items-center justify-around'>
 
         <div>
           {/* heading */}
-          <h1 className='font-extrabold pl-4 text-3xl text-white'>Media Search</h1>
+          <Link to='/' className='font-extrabold sm:mb-0 mb-4 pl-4 text-3xl text-white'>Media Search</Link>
         </div>
 
-        <div className="flex items-center border-2 border-white rounded-xl overflow-hidden">
+        <div className="flex transition-all items-center sm:mb-0 mb-4 border-2 border-white rounded-xl overflow-hidden">
           {/* search bar */}
-          <input
-            required
-            value={text}
-            onChange={(e)=>{
-              // console.log(e.target.value)
-              setText(e.target.value)
-            }}
-            className="w-96 px-4 h-12 bg-transparent text-white placeholder-gray-300 outline-none"
-            type="text"
-            placeholder="search anything..."
-          />
+          {location.pathname !== "/collection" && (
+            <>
+              <input
+                required
+                value={text}
+                onChange={(e) => setText(e.target.value)}
+                className="w-96 px-4 h-12 bg-transparent text-white placeholder-gray-300 outline-none"
+                type="text"
+                placeholder="search anything..."
+              />
+              <button className="h-12 px-4 bg-white text-black text-2xl flex items-center cursor-pointer justify-center hover:bg-blue-500 transition hover:text-white">
+                <FaSearchengin />
+              </button>
+            </>
+
+          )}
 
           {/* button */}
-          <button className="h-12 px-4 bg-white text-black text-2xl flex items-center cursor-pointer justify-center hover:bg-blue-500 transition hover:text-white">
-            <FaSearchengin />
-          </button>
+
         </div>
 
-        <div className='text-white flex gap-3 font-semibold'>
-          <Link to='/' className='bg-blue-500 hover:bg-gray-500 border px-3 py-1 rounded text-base' >Search</Link>
-          <Link to='/collection' className='bg-blue-500 hover:bg-gray-500 border px-3 py-1 rounded text-base' >Collection</Link>
+        {/* search and collection button */}
+        <div className='text-white flex justify-center gap-4 items-center gap-3 font-semibold'>
+          <NavLink
+            to='/' className={({ isActive }) =>
+              `border px-3 py-1 rounded text-base ${isActive
+                ? "bg-blue-500 text-white"
+                : "bg-gray-400 hover:bg-gray-500"
+              }`
+            }
+          >
+            Search
+          </NavLink>
+
+          <NavLink
+            to='/collection' className={({ isActive }) =>
+              `border px-3 py-1 rounded text-base ${isActive
+                ? "bg-blue-500 text-white"
+                : "bg-gray-400 hover:bg-gray-500"
+              }`
+            }
+          >
+            Collection
+          </NavLink>
         </div>
 
       </form>

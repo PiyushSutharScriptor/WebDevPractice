@@ -2,9 +2,11 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import CollectionPage from './pages/CollectionPage'
 import HomePage from './pages/HomePage'
+import { ToastContainer} from 'react-toastify';
 import { Toaster } from "react-hot-toast";
 
 const App = () => {
+  
 
   return (
     <>
@@ -13,7 +15,8 @@ const App = () => {
         <Route path='/' element={<HomePage/>} />
         <Route path='/collection' element={<CollectionPage/>} />
       </Routes>
-        <Toaster position="top-right" reverseOrder={false} />
+      <ToastContainer />
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
     </>
     
