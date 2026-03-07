@@ -1,26 +1,31 @@
 import React from 'react'
 import ResultCard from '../components/ResultCard'
 import SearchBar from '../components/SearchBar'
-              
+import { useSelector } from 'react-redux'
+import CollectionCard from '../components/CollectionCard'
+
 const CollectionPage = () => {
-  const data = JSON.parse(localStorage.getItem('collection')) || []
-  console.log(data.length)
+
+  let collection = useSelector(state => state.collection.items)
 
   return (
-    <>
-    <SearchBar />
-      {data.length > 1 ? (
-        <div className="w-full max-w-8xl mx-auto px-6">
-          <div className="flex flex-wrap gap-4 my-8">
-            {data.map((item, idx) => (
-              <ResultCard key={idx} idx={idx} item={item} />
-            ))}
-          </div>
-        </div>
-      ) : (
-        <h1>sdf</h1>
-      )}
-    </>
+    <div>
+      <SearchBar />
+
+
+      <div className="w-full max-w-8xl mx-auto px-6">
+        <div className="flex flex-wrap gap-4 my-8 justify-center">
+        {
+          collection.map((item, idx) => {
+            return <div key={idx}>
+              <CollectionCard item={item} />
+            </div>
+          })
+        }
+      </div>
+    </div>
+
+    </div >
   )
 }
 
