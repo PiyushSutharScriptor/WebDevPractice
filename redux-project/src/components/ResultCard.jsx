@@ -1,14 +1,14 @@
 import React from 'react'
-import { toast } from "react-hot-toast"
 import {useDispatch} from 'react-redux'
-import { addCollection } from '../redux/features/collectionSlice';
+import { ToastContainer} from 'react-toastify';
+import { addCollection, addToast } from '../redux/features/collectionSlice';
 const ResultCard = (props) => {
 
   const dispatch = useDispatch();
 
   const addToCollection = (item)=>{
     dispatch(addCollection(item))
-    toast.success("Added To Collection")
+    dispatch(addToast())
   }
 
   return (  
@@ -29,6 +29,7 @@ const ResultCard = (props) => {
           addToCollection(props.item)
         }} className='cursor-pointer rounded px-2 py-1 bg-blue-500 text-white text-sm font-semibold hover:bg-blue-700 active:scale-95'>Save</button>
       </div>
+      <ToastContainer />
 
     </div>
   ) 
