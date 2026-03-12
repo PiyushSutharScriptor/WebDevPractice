@@ -29,10 +29,10 @@ const SearchBar = () => {
 
         <div>
           {/* heading */}
-          <Link to='/' className='font-extrabold sm:mb-0 mb-4 pl-4 text-3xl text-white'>Media Search</Link>
+          <Link to='/' className='font-extrabold sm:mb-0 mb-10 pl-4 text-3xl text-white'>Media Search</Link>
         </div>
 
-        <div className="flex transition-all items-center sm:mb-0 mb-4 border-2 border-white rounded-xl overflow-hidden">
+        <div className="flex transition-all items-center sm:mb-0 sm:mt:0 mt-4 mb-4 border-2 border-white rounded-xl overflow-hidden">
           {/* search bar */}
           {location.pathname !== "/collection" && (
             <>
